@@ -13,3 +13,4 @@ WebApp
 - Inserire le vostre rotte in un router.
 - Inserire un middleware per le rotte inesistenti.
 - Inserire un middleware per la gestione errori.
+- Inserire delle imagini nel database.
