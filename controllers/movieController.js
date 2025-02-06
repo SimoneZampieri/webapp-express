@@ -20,7 +20,27 @@ const show = (req, res) => {
   });
 };
 
+const store = (req, res) => {
+  res.send("Film Inserito");
+};
+
+const update = (req, res) => {
+  res.send("film aggiornato");
+};
+
+const destroy = (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM movies WHERE id = ?";
+  connection.query(sql, [id], (err) => {
+    if (err) return res.status(500).json({ error: "Errore nella query" });
+    res.json({ message: "Film Eliminato" });
+  });
+};
+
 module.exports = {
   index,
   show,
+  store,
+  update,
+  destroy,
 };
