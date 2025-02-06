@@ -3,10 +3,17 @@ const app = express();
 const port = process.env.PORT || 3000;
 require("dotenv").config();
 const movieRouter = require("./routes/movieRouter");
+const imagePath = require("./middlewares/imgHand");
+
 //middlewares
 const errorsHandler = require("./middlewares/errorHand");
 const notFound = require("./middlewares/notFound");
 
+//imgHandler
+app.use(imagePath);
+
+//public folder
+app.use(express.static("public"));
 //parsing body
 app.use(express.json());
 
