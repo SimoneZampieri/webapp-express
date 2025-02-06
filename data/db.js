@@ -1,5 +1,4 @@
 const mysql = require("mysql2");
-const env = require("../env");
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -9,7 +8,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect((err) => {
-  if (err) throw error;
+  if (err) throw err;
   console.log("Database connesso");
 });
 
