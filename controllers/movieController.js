@@ -20,13 +20,6 @@ const show = (req, res) => {
     if (results.length === 0)
       return res.status(404).json({ error: "Film non trovato" });
 
-    const movies = results.map((movie) => {
-      return {
-        ...movies,
-        image: `${req.imagePath}/img/movies${movie.image} `,
-      };
-    });
-
     let movie = results[0];
 
     connection.query(sqReview, [id], (error, reviewResults) => {
