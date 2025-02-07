@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 require("dotenv").config();
 const movieRouter = require("./routes/movieRouter");
 const imagePath = require("./middlewares/imgHand");
@@ -13,7 +13,7 @@ const notFound = require("./middlewares/notFound");
 //CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5173",
   })
 );
 
