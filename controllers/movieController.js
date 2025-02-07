@@ -5,7 +5,12 @@ const index = (req, res) => {
 
   connection.query(sql, (error, results) => {
     if (error) return res.status(500).json({ error: "Errore nella query" });
-    res.json(results);
+    res.json(
+      results.map((movie) => ({
+        ...movie,
+        image: req.imagePath + movie.image,
+      }))
+    );
   });
 };
 
@@ -25,7 +30,11 @@ const show = (req, res) => {
     connection.query(sqReview, [id], (error, reviewResults) => {
       if (error) return res.status(500).json({ error: "Errore nella query" });
       movie.reviews = reviewResults;
-      res.json(movie);
+
+      res.json({
+        ...movie,
+        image: req.imagePath + movie.image,
+      });
     });
   });
 };
