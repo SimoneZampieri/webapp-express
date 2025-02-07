@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 require("dotenv").config();
 const movieRouter = require("./routes/movieRouter");
 const imagePath = require("./middlewares/imgHand");
+const cors = require("cors");
 
 //middlewares
 const errorsHandler = require("./middlewares/errorHand");
