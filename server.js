@@ -9,6 +9,13 @@ const imagePath = require("./middlewares/imgHand");
 const errorsHandler = require("./middlewares/errorHand");
 const notFound = require("./middlewares/notFound");
 
+//CORS middleware
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
+
 //imgHandler
 app.use(imagePath);
 
