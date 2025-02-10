@@ -39,7 +39,7 @@ const show = (req, res) => {
   });
 };
 
-const store = (req, res) => {
+const storeAbstract = (req, res) => {
   const id = req.params.id;
   const { name, vote, text } = req.body;
 
@@ -69,7 +69,7 @@ const destroy = (req, res) => {
 module.exports = {
   index,
   show,
-  store,
+  storeAbstract,
   update,
   destroy,
 };
