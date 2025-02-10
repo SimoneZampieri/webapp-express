@@ -47,10 +47,11 @@ const store = (req, res) => {
     "INSERT INTO reviews (name, vote, text, movie_id) VALUES (?, ?, ?, ?)";
 
   connection.query(sql, [text, vote, name, id], (err, results) => {
-    if(err) return res.status(500).json({ error: "Errore nella query" });
+    if (err) return res.status(500).json({ error: "Errore nella query" });
     res.status(201);
-    res.json({message: "Recensione aggiunta", id: results.insertId});
-});
+    res.json({ message: "Recensione aggiunta", id: results.insertId });
+  });
+};
 
 const update = (req, res) => {
   res.send("film aggiornato");
@@ -71,4 +72,4 @@ module.exports = {
   store,
   update,
   destroy,
-}
+};
