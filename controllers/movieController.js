@@ -40,8 +40,17 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
-  res.send("Film Inserito");
-};
+  const id = req.params.id;
+  const { name, vote, text } = req.body;
+
+  const sql =
+    "INSERT INTO reviews (name, vote, text, movie_id) VALUES (?, ?, ?, ?)";
+
+  connection.query(sql, [text, vote, name, id], (err, results) => {
+    if(err) return res.status(500).json({ error: "Errore nella query" });
+    res.status(201);
+    res.json({message: "Recensione aggiunta", id: results.insertId});
+});
 
 const update = (req, res) => {
   res.send("film aggiornato");
@@ -62,4 +71,4 @@ module.exports = {
   store,
   update,
   destroy,
-};
+}
