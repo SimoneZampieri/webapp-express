@@ -44,7 +44,7 @@ const storeReview = (req, res) => {
   const { name, vote, text } = req.body;
 
   const sql =
-    "INSERT INTO reviews (name, vote, text, movie_id) VALUES (?, ?, ?, ?)";
+    "INSERT INTO reviews (name, text, vote, movie_id) VALUES (?, ?, ?, ?)";
 
   connection.query(sql, [text, vote, name, id], (err, results) => {
     if (err) return res.status(500).json({ error: "Errore nella query" });
