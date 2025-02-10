@@ -6,7 +6,7 @@ router.get("/", movieController.index);
 
 router.get("/:id", movieController.show);
 
-router.post("/:id/reviews", movieController.storeAbstract);
+router.post("/:id/reviews", movieController.storeReview);
 
 router.get("/:id", movieController.update);
 
