@@ -57,7 +57,7 @@ const storeReview = (req, res) => {
 };
 
 const store = (req, res) => {
-  const { tile, genre, abstract } = req.body;
+  const { title, genre, abstract } = req.body;
   const imgName = req.file.filename;
 
   const sql =
