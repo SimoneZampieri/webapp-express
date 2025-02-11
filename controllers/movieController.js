@@ -63,7 +63,7 @@ const store = (req, res) => {
   const sql =
     "INSERT INTO movies (title, genre, abstract, image) VALUES (?, ?, ?, ?)";
 
-  connection.query(sql, [title, genre, abstract, image], (err, results) => {
+  connection.query(sql, [title, genre, abstract, imgName], (err, results) => {
     if (err) return res.status(500).json({ error: "Errore nella query" });
     res.status(201);
     res.json({ message: "Film aggiunto" });
