@@ -12,4 +12,6 @@ router.get("/:id", movieController.update);
 
 router.get("/:id", movieController.destroy);
 
+router.post("/", movieController.store);
+
 module.exports = router;
