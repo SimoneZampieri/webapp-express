@@ -11,7 +11,7 @@ router.post("/:id/reviews", movieController.storeReview);
 
 router.get("/:id", movieController.update);
 
-router.get("/:id", movieController.destroy);
+router.delete("/:id", movieController.destroy);
 
 router.post("/", upload.single("image"), movieController.store);
 
